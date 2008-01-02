@@ -8,6 +8,7 @@ URL:		http://upx.sourceforge.net/
 Source0:	http://upx.sourceforge.net/download/%{name}-%{version}-src.tar.bz2
 BuildRequires:	libucl-devel >= 1.03
 BuildRequires:	zlib-devel
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 UPX is an advanced executable file compressor. UPX will typically
