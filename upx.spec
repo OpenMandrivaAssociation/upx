@@ -1,6 +1,6 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	3.02
+Version:	3.03
 Release:	%mkrel 1
 License:	GPL
 Group:		Archiving/Compression
@@ -8,7 +8,7 @@ URL:		http://upx.sourceforge.net/
 Source0:	http://upx.sourceforge.net/download/%{name}-%{version}-src.tar.bz2
 BuildRequires:	libucl-devel >= 1.03
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 UPX is an advanced executable file compressor. UPX will typically
