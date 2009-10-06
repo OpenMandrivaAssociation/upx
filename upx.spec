@@ -6,6 +6,7 @@ License:	GPL
 Group:		Archiving/Compression
 URL:		http://upx.sourceforge.net/
 Source0:	http://upx.sourceforge.net/download/%{name}-%{version}-src.tar.bz2
+Patch0:		upx-3.03-src-format_not_a_string_literal_and_no_format_arguments.diff
 BuildRequires:	libucl-devel >= 1.03
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -29,13 +30,14 @@ http://compression.ca/act-exepack.html
 %prep
 
 %setup -q -n %{name}-%{version}-src
+%patch0 -p0
 
 %build
 # building the docs
 %make -C doc
 export UCLDIR=%{_prefix}
-%make -C src
-     
+%make -C src CXXFLAGS="%{optflags} -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings"
+
 %install
 rm -rf %{buildroot}
 
