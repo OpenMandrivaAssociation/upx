@@ -1,7 +1,7 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	3.03
-Release:	%mkrel 3
+Version:	3.04
+Release:	%mkrel 1
 License:	GPL
 Group:		Archiving/Compression
 URL:		http://upx.sourceforge.net/
