@@ -1,7 +1,7 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
 Version:	3.08
-Release:	2
+Release:	3
 License:	GPL
 Group:		Archiving/Compression
 URL:		http://upx.sourceforge.net/
