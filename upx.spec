@@ -1,12 +1,12 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	3.08
-Release:	5
-License:	GPL
+Version:	3.09
+Release:	1
+License:	GPLv2+
 Group:		Archiving/Compression
 URL:		http://upx.sourceforge.net/
 Source0:	http://upx.sourceforge.net/download/%{name}-%{version}-src.tar.bz2
-BuildRequires:	ucl-devel >= 1.03
+BuildRequires:	ucl-devel
 BuildRequires:	pkgconfig(zlib)
 
 %description
@@ -25,8 +25,14 @@ Win95/98/ME/NT/2000 programs and DLLs, DOS programs, and Linux executables.
 UPX is rated number one in the well known Archive Comparison Test. Visit
 http://compression.ca/act-exepack.html
 
-%prep
+%files
+%doc BUGS LICENSE NEWS PROJECTS README* THANKS doc/upx.doc doc/upx.html doc/*.txt
+%{_bindir}/*
+%attr(644,root,man) %{_mandir}/man1/*
 
+#----------------------------------------------------------------------------
+
+%prep
 %setup -q -n %{name}-%{version}-src
 
 %build
@@ -36,15 +42,9 @@ export UCLDIR=%{_prefix}
 %make -C src CXXFLAGS="%{optflags} -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings"
 
 %install
-rm -rf %{buildroot}
-
 install -d %{buildroot}%{_bindir}
 install -d %{buildroot}%{_mandir}/man1
 
 install -m 755 src/upx.out %{buildroot}%{_bindir}/upx
 install -m 644 doc/upx.1 %{buildroot}%{_mandir}/man1/
 
-%files
-%doc BUGS LICENSE NEWS PROJECTS README* THANKS doc/upx.doc doc/upx.html doc/*.txt
-%{_bindir}/*
-%attr(644,root,man) %{_mandir}/man1/*
