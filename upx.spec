@@ -39,7 +39,7 @@ http://compression.ca/act-exepack.html
 # building the docs
 %make -C doc
 export UCLDIR=%{_prefix}
-%make -C src CXXFLAGS="%{optflags} -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings"
+%make -C src CXXFLAGS="%{optflags} -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings" CXX="%__cxx"
 
 %install
 install -d %{buildroot}%{_bindir}
