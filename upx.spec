@@ -1,7 +1,7 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
 Version:	3.91
-Release:	4
+Release:	5
 License:	GPLv2+
 Group:		Archiving/Compression
 URL:		http://upx.sourceforge.net/
@@ -39,7 +39,7 @@ http://compression.ca/act-exepack.html
 # building the docs
 %make -C doc
 export UCLDIR=%{_prefix}
-%make -C src CXXFLAGS="%{optflags} -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings" CXX="%__cxx"
+%make -C src CXXFLAGS="%{optflags} -Ofast -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings" CXX="%__cxx"
 
 %install
 install -d %{buildroot}%{_bindir}
