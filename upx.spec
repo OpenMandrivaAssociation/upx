@@ -1,11 +1,11 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	3.91
-Release:	7
+Version:	3.93
+Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
-URL:		http://upx.sourceforge.net/
-Source0:	http://upx.sourceforge.net/download/%{name}-%{version}-src.tar.bz2
+URL:		https://upx.github.io/
+Source0:	https://github.com/upx/upx/releases/download/v%{version}/%{name}-%{version}-src.tar.xz
 BuildRequires:	ucl-devel
 BuildRequires:	pkgconfig(zlib)
 
