@@ -41,7 +41,7 @@ sed -i -e 's/ -O2/ -Ofast/' -e 's/ -Werror//' src/Makefile
 %setup_compile_flags
 export UCLDIR=%{_prefix}
 
-%make all
+%make UPX_LZMA_VERSION=0x465 CHECK_WHITESPACE=/bin/true all
 
 %install
 install -d %{buildroot}%{_bindir}
