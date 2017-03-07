@@ -35,6 +35,8 @@ http://compression.ca/act-exepack.html
 %prep
 %setup -q -n %{name}-%{version}-src
 
+sed -i -e 's/ -O2/ -Ofast/' -e 's/ -Werror//' src/Makefile
+
 %build
 %setup_compile_flags
 
