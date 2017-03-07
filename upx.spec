@@ -39,11 +39,9 @@ sed -i -e 's/ -O2/ -Ofast/' -e 's/ -Werror//' src/Makefile
 
 %build
 %setup_compile_flags
-
-# building the docs
-%make -C doc
 export UCLDIR=%{_prefix}
-%make -C src
+
+%make all
 
 %install
 install -d %{buildroot}%{_bindir}
