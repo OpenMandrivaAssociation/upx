@@ -1,6 +1,6 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	3.94
+Version:	3.95
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
@@ -8,6 +8,7 @@ URL:		https://upx.github.io/
 Source0:	https://github.com/upx/upx/releases/download/v%{version}/%{name}-%{version}-src.tar.xz
 BuildRequires:	ucl-devel
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	perl(Pod::Html)
 
 %description
 UPX is an advanced executable file compressor. UPX will typically
