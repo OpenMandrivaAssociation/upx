@@ -1,11 +1,12 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	3.96
+Version:	4.0.0
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
 URL:		https://upx.github.io/
 Source0:	https://github.com/upx/upx/releases/download/v%{version}/%{name}-%{version}-src.tar.xz
+BuildRequires:	cmake ninja
 BuildRequires:	ucl-devel
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	perl(Pod::Html)
@@ -27,27 +28,18 @@ UPX is rated number one in the well known Archive Comparison Test. Visit
 http://compression.ca/act-exepack.html
 
 %files
-%doc BUGS LICENSE NEWS PROJECTS README* THANKS doc/upx.doc doc/upx.html doc/*.txt
 %{_bindir}/*
 %attr(644,root,man) %{_mandir}/man1/*
+%doc %{_docdir}/upx
 
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{version}-src
-
-sed -i -e 's/ -O2/ -Ofast/' -e 's/ -Werror//' src/Makefile
+%autosetup -p1 -n %{name}-%{version}-src
+%cmake -G Ninja
 
 %build
-%setup_compile_flags
-export UCLDIR=%{_prefix}
-
-%make UPX_LZMA_VERSION=0x465 CHECK_WHITESPACE=/bin/true all
+%ninja_build -C build
 
 %install
-install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_mandir}/man1
-
-install -m 755 src/upx.out %{buildroot}%{_bindir}/upx
-install -m 644 doc/upx.1 %{buildroot}%{_mandir}/man1/
-
+%ninja_install -C build
