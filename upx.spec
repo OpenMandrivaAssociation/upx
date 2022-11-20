@@ -1,6 +1,6 @@
 Summary:	The Ultimate Packer for eXecutables
 Name:		upx
-Version:	4.0.0
+Version:	4.0.1
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
