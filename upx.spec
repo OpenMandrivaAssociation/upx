@@ -6,8 +6,8 @@ License:	GPLv2+
 Group:		Archiving/Compression
 URL:		https://upx.github.io/
 Source0:	https://github.com/upx/upx/releases/download/v%{version}/%{name}-%{version}-src.tar.xz
-BuildRequires:	ucl-devel
-BuildRequires:	pkgconfig(zlib)
+# 5.3 links the vendored UCL, zlib, bzip2 and zstd copies. There is
+# no system-library switch, and cooker has no ucl-devel provider.
 BuildRequires:	perl(Pod::Html)
 BuildSystem:	cmake
 
